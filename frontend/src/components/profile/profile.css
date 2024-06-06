@@ -1,0 +1,252 @@
+.profileWrap {
+    width: 100%;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.profileInf {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileImg {
+    width: 300px;
+    height: 300px;
+}
+
+.textProfile {
+    font-size: 40px;
+    width: 600px;
+    text-align: start;
+    width: 60%;
+    /* margin-left: 25px; */
+}
+
+.nameProfile {
+    border-bottom: 2px solid rgba(0, 156, 79, 1);
+
+}
+
+.login,
+.post,
+.phone-num,
+.about {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(0, 156, 79, 1);
+    padding-top: 30px;
+
+}
+
+.about {
+    border: none;
+}
+
+.it1 {
+    width: 40%;
+}
+
+.it2 {
+    width: 60%;
+    text-align: start;
+}
+
+.employee-inf {
+    font-family: Arial;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 55.2px;
+    text-align: center;
+    width: 300px;
+
+}
+
+.status {
+    border-bottom: 2px solid rgba(0, 156, 79, 1);
+    padding-bottom: 15px;
+}
+
+.achieves {
+    border-bottom: 2px solid rgba(0, 156, 79, 1);
+    padding: 15px 0 50px 0;
+}
+
+.achieves-icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+    margin-top: 20px;
+}
+
+.icon-achieves {}
+
+.lvl-emp {
+    padding-top: 15px;
+}
+
+.dots{
+    display: flex;
+    height: 100%;
+align-items: end;
+}
+.dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 100px;
+    background-color: rgba(0, 156, 79, 1);
+    margin-left: 3px;
+}
+
+.lvlProfile {
+    width: 330px;
+    margin-top: 40px;
+}
+
+.rack {
+    position: relative;
+    width: 503px;
+
+}
+
+.imgRack {
+    position: absolute;
+    left: 0;
+}
+
+.ellipse {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    margin: 0 6px;
+    position: absolute;
+}
+
+.e1 {
+    background-color: rgba(255, 158, 88, 1);
+    top: 50px;
+    left: 60px;
+}
+
+.e2 {
+    background-color: rgba(255, 214, 0, 1);
+    top: 50px;
+    left: 160px;
+}
+
+.e3 {
+    background-color: rgba(127, 255, 0, 1);
+    top: 50px;
+    left: 260px;
+
+}
+
+.e4 {
+    background-color: rgba(255, 0, 245, 1);
+    top: 50px;
+    left: 360px;
+
+}
+
+.e5 {
+    background-color: rgba(57, 231, 255, 1);
+    left: 60px;
+    top: 215px;
+}
+
+.map {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 80px;
+    object-fit: fill;
+    padding: 15px 0;
+
+}
+
+.map-light{
+    background-color: #dfdfdf;
+    border-radius: 20px;
+
+}
+
+.mapImg {
+    object-fit: cover;
+    width: 85%;
+}
+
+.coursesWrap {
+    width: 100%;
+    font-weight: 400;
+    margin-top: 120px;
+}
+
+.textBlock {
+    font-size: 50px;
+    text-align: start;
+    margin-bottom: 60px;
+    background: linear-gradient(90deg, rgba(0, 156, 79, 1) 0%, rgba(0, 156, 79, 0) 100%);
+    width: fit-content;
+    padding: 20px 80px 20px 90px;
+}
+
+.textBlockLight {
+    color: #00000057;
+}
+
+.coursesList {
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.course {
+    max-width: 48%;
+    background-color: white;
+    border-radius: 30px;
+    margin-bottom: 55px;
+    padding-bottom: 70px;
+}
+
+.courseImg {
+    height: 40%;
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+
+}
+
+.courseTitle {
+    color: black;
+    font-size: 48px;
+    text-align: start;
+    margin-top: 15px;
+    padding-left: 20px;
+    width: 80%;
+}
+
+.completion {
+    margin-top: 50px;
+}
+
+.courseBtn {
+    border: none;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 50px;
+    margin: 0 auto;
+    background-color:
+        rgba(0, 156, 79, 1);
+    font-size: 40px;
+    margin-top: 45px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+}
+
+.courseBtn:hover {
+    transform: scale(102%);
+}

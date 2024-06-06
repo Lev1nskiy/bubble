@@ -1,0 +1,47 @@
+.mainWrap {}
+
+.main {
+    font-family: "Inter", sans-serif;
+    color: white;
+    padding: 0 200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    font-weight: 400;
+    font-size: 50px;
+    width: 60%;
+    padding: 30px 0 30px 150px;
+    margin-top: 30px;
+    text-align: start;
+    background: linear-gradient(90deg, rgba(0, 156, 79, 1) 0%, rgba(0, 156, 79, 0) 100%);
+}
+
+.lb-table-btn {
+    color: white;
+    border: 3px solid rgba(0, 156, 79, 1);
+    border-radius: 25px;
+    padding: 10px 50px;
+    box-sizing: border-box;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: Arial;
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 46px;
+    text-align: left;
+    margin-top: 150px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.lb-table-btn:hover{
+    transform: scale(105%);
+    box-shadow: 0px 0px 5px 2px green;
+}
+
+.table-btn-light{
+    color: black;
+}
