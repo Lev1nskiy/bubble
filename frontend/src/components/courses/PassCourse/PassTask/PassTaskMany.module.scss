@@ -1,0 +1,43 @@
+.btn_add{
+    border: none;
+    color: white;
+    border-radius: 15px;
+    padding: 10px 50px;
+    // margin: 0 auto;
+    background-color: 
+    rgba(0, 156, 79, 1);
+    font-size: 40px;
+    // margin-top: 45px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.wrapper_btn{
+    margin-top: 90px;
+    margin-bottom: 90px;
+    text-align: center;
+}
+.checkbox_container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 60px;
+}
+
+.checkbox_item {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 80px;
+    justify-content: start;
+    align-items: center;
+    align-content: start;
+    font-size: 30px;
+
+    &>* {
+        // display: inline;
+        flex-basis: content;
+
+    }
+    &_add{
+        margin-top: 70px;
+    }
+}

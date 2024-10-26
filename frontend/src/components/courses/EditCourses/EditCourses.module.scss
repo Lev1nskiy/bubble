@@ -1,0 +1,30 @@
+.wrapper{
+    margin-left: 145px;
+    margin-right: 145px;
+}
+
+.typical_text{
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.courses_container{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.block_btn{
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.green_divider{
+    background-color: rgba(0, 156, 79, 1);
+    height: 3px;
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}

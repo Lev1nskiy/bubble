@@ -141,10 +141,10 @@ align-items: end;
 
 .tab{
     padding-bottom: 20px;
-
+    cursor: pointer;
 }
 
-.tab:nth-child(1){
+.tab_select{
     border-bottom: 2px solid rgba(0, 156, 79, 1);
 }
 

@@ -1,41 +1,80 @@
-import { useSelector } from 'react-redux'
-import { themeReducer } from '../../store/Theme/reducer'
-import { selectTheme } from '../../store/Theme/selectors'
-import './leaderBoard.css'
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../store/Theme/selectors';
+import axios from 'axios';
+import './leaderBoard.css';
 
+interface User {
+    login: string;
+    name: string;
+    surname: string;
+    patronic: string;
+    progress: number;
+}
 
-const arr = [
-    { number: 1, name: "Ах-Ты Наш Гоблин Младший", quantity: 20, points: 712 },
-    { number: 2, name: "Аслан Уфимыч Фторник", quantity: 18, points: 612 },
-    { number: 3, name: "Мазунина Инна Ивановна", quantity: 20, points: 600 },
-    { number: 4, name: "Привет Андрей Где", quantity: 15, points: 550 },
-    { number: 5, name: "Липси Ха Гимми", quantity: 12, points: 545 },
-    { number: 6, name: "Помидоры Помидоры Помидоры", quantity: 12, points: 530 },
-    { number: 7, name: "Дай Мне Вдохновения", quantity: 11, points: 438 },
-    { number: 8, name: "Надеюсь Иуэс Придумает", quantity: 10, points: 400 },
-    { number: 9, name: "Зубенко Михаил Петрович", quantity: 12, points: 320 },
-    { number: 10, name: "Витас Стучится ВОкно", quantity: 10, points: 300 },
-    { number: 40, name: "Райан Гослинг-Стетхем", quantity: 3, points: 120 },
-];
 export const LeaderBoardPage = () => {
+    const { theme } = useSelector(selectTheme);
 
-    const { theme } = useSelector(selectTheme)
+    const [users, setUsers] = useState<User[]>([]);
+    const [photoUrl, setPhotoUrl] = useState<string[]>([]);
+    const [activeUser, setActiveUser] = useState<User | null>(null);
+    const [activeUserPosition, setActiveUserPosition] = useState<number | null>(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const token = localStorage.getItem('jwtToken');
+            const activeUserId = document.cookie
+                .split('; ')
+                .find(row => row.startsWith('user_id='))
+                ?.split('=')[1];
+        
+            try {
+                const response = await axios.post(
+                    'http://localhost:5000/leaderboard',
+                    {
+                        active_user_id: activeUserId,
+                    },
+                    {
+                        headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                        }
+                    }
+                );
+        
+                const data = response.data;
+        
+                setUsers(data.users || []);
+                setPhotoUrl(data.photo_url || []);
+                setActiveUser(data.active_user || null);
+                setActiveUserPosition(data.active_user_position || null);
+            } catch (error) {
+                console.error('Ошибка при получении данных:', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const finalUsers = [...users];
+
+    if (activeUser && activeUserPosition && activeUserPosition > 10) {
+        finalUsers.push(activeUser);
+    }
 
     return (
         <div className='page-wrap'>
-            <div className="title-page">
-                Таблица лидеров
-            </div>
+            <div className="title-page">Таблица лидеров</div>
             <div className='page-container'>
                 <div className={theme === 'dark' ? 'lbWrap' : 'lbWrap lbWraplight'}>
+                    {/* Логика отображения лучших 3 пользователей */}
                     <div className='lbItem'>
                         <div className='lbItem-container i1'>
-                            <img className='itemImg' src='/lbImg/Rectangle1.svg' />
+                            <img className='itemImg' src={photoUrl[1]} />
                             <div className='itemName'>
-                                Аслан Уфимыч Фторник
+                                {users[1]?.name} {users[1]?.surname} {users[1]?.patronic}
                             </div>
                             <div className='lvl'>
-                                20 уровень
+                                {users[1]?.progress} уровень
                             </div>
                         </div>
                         <div className='union'>
@@ -49,19 +88,18 @@ export const LeaderBoardPage = () => {
                                 <div className='ellipseLb e3'></div>
                             </div>
                         </div>
-
                     </div>
-                    <div className='lbItem '>
+
+                    <div className='lbItem'>
                         <div className='lbItem-container i2'>
-                            <img className='itemImg' src='/lbImg/Rectangle2.svg' />
+                            <img className='itemImg' src={photoUrl[0]} />
                             <div className='itemName'>
-                                Ах-Ты Наш Гоблин Младший
+                                {users[0]?.name} {users[0]?.surname} {users[0]?.patronic}
                             </div>
                             <div className='lvl'>
-                                30 уровень
+                                {users[0]?.progress} уровень
                             </div>
                         </div>
-
                         <div className='union'>
                             <img className='unionImg' src='/Union1.svg' />
                             <div className='unionNum num2'>
@@ -72,19 +110,18 @@ export const LeaderBoardPage = () => {
                                 <div className='ellipseLb ee2'></div>
                                 <div className='ellipseLb ee3'></div>
                                 <div className='ellipseLb ee4'></div>
-                                {/* <div className='ellipseLb ee5'></div> */}
                             </div>
                         </div>
-
                     </div>
-                    <div className='lbItem '>
+
+                    <div className='lbItem'>
                         <div className='lbItem-container i3'>
-                            <img className='itemImg' src='/lbImg/Rectangle3.svg' />
+                            <img className='itemImg' src={photoUrl[2]} />
                             <div className='itemName'>
-                                Мазунина Инна Ивановна
+                                {users[2]?.name} {users[2]?.surname} {users[2]?.patronic}
                             </div>
                             <div className='lvl'>
-                                15 уровень
+                                {users[2]?.progress} уровень
                             </div>
                         </div>
                         <div className='union'>
@@ -97,7 +134,6 @@ export const LeaderBoardPage = () => {
                                 <div className='ellipseLb e5'></div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className='table'>
@@ -108,27 +144,25 @@ export const LeaderBoardPage = () => {
                         <li>Баллы</li>
                     </ul>
                     <ul className="table-list">
-                        {arr.map((item) =>(
-                            <li className='list-item' key={item.number}>
-                                <div>
-                                    {item.number}
-                                </div>
-                                <div>
-                                    {item.name}
-                                </div>
-                                <div>
-                                    {item.quantity}
-                                </div>
-                                <div>
-                                    {item.points}
-                                </div>
+                        {finalUsers.slice(0, 10).map((user, index) => (
+                            <li className="list-item" key={index}>
+                                <div>{index + 1}</div>
+                                <div>{user.name} {user.surname} {user.patronic}</div>
+                                <div>{user.progress}</div>
+                                <div>{user.progress}</div>
                             </li>
                         ))}
+                        {activeUser && activeUserPosition && activeUserPosition > 10 && (
+                            <li className="list-item" key={'active-user'}>
+                                <div>{activeUserPosition}</div>
+                                <div>{activeUser.name} {activeUser.surname} {activeUser.patronic}</div>
+                                <div>{activeUser.progress}</div>
+                                <div>{activeUser.progress}</div>
+                            </li>
+                        )}
                     </ul>
                 </div>
             </div>
-
         </div>
-
-    )
+    );
 }

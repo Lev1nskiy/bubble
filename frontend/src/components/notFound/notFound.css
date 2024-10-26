@@ -1,0 +1,28 @@
+.not-found {
+    padding-top: 93px;
+    padding-bottom: 136px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found h1 {
+    font-weight: 400;
+    font-size: 400px;
+    margin: 0;
+    text-shadow: 40px 2px 3px #00000040;
+    font-family: Arial;
+}
+
+.not-found span {
+    font-size: 40px;
+}
+
+.not-found a {
+    margin-top: 44px;
+    padding: 28px 28px;
+    background: #009C4F;
+    font-size: 40px;
+    color: #fff;
+    border-radius: 30px;
+}

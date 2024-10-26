@@ -1,0 +1,44 @@
+.wrapper_form {
+    flex-flow: row wrap;
+    font-size: 30px;
+    color: black;
+    padding: 50px;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.form_first_part {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 65px;
+}
+
+.form_second_part {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 34px;
+    padding: 50px;
+}
+
+.form_input {
+    margin-left: 13px;
+
+    &_big {
+        height: 360px;
+        margin-left: 13px;
+        background-color: rgba(225, 225, 225, 1);
+        border-radius: 30px;
+        border: none;
+        // height: 40px;
+        width: 550px;
+        font-size: 30px;
+        padding: 10px;
+        box-sizing: border-box;
+
+    }
+}
+
+.add_img {
+    width: 420px;
+    height: 270px;
+}
